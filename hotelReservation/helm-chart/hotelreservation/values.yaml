@@ -38,3 +38,97 @@ global:
       pvprovisioner:
         enabled: false
         storageClassName: ceph-fs   # optional
+
+############### 下面是新补充的配置 ###############
+#global:
+  resources: |
+    requests:
+      memory: "4096Mi"
+      cpu: "8"
+    limits:
+      memory: "4096Mi"
+      cpu: "8"
+#  services:
+#    environments:
+#      GC: "10000"
+geo:
+  container:
+    command: /go/bin/geo
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+frontend:
+  container:
+    command: /go/bin/frontend
+    resources: |
+      requests:
+        memory: "16384Mi"
+        cpu: "16"
+      limits:
+        memory: "16384Mi"
+        cpu: "16"
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+profile:
+  container:
+    command: /go/bin/profile
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+rate:
+  container:
+    command: /go/bin/rate
+    resources: |
+      requests:
+        memory: "16384Mi"
+        cpu: "16"
+      limits:
+        memory: "16384Mi"
+        cpu: "16"
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+recommendation:
+  container:
+    command: /go/bin/recommendation
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+reservation:
+  container:
+    command: /go/bin/reservation
+    resources: |
+      requests:
+        memory: "65536Mi"
+        cpu: "64"
+      limits:
+        memory: "65536Mi"
+        cpu: "64"
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+search:
+  container:
+    command: /go/bin/search
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+user:
+  container:
+    command: /go/bin/user
+  configMaps:
+    - name: service-config.json
+      mountPath: /workspace/config.json
+      value: service-config
+jaeger:
+  container:
+    image: jaegertracing/all-in-one
+#    imageVersion: 1.21.0
