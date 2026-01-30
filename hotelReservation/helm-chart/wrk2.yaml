@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wrk-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wrk-client
+  template:
+    metadata:
+      labels:
+        app: wrk-client
+    spec:
+      containers:
+        - name: wrk
+          image: deathstarbench/wrk2-client:latest
+          imagePullPolicy: IfNotPresent
+          # 默认命令为空，进入 pod 后可以 exec 执行 wrk
+          command: ["/bin/sh"]
+          args: ["-c", "sleep infinity"]
+          resources:
+            limits:
+              cpu: "4"
+              memory: "4096Mi"
+            requests:
+              cpu: "4"
+              memory: "4096Mi"
+          stdin: true
+          tty: true
