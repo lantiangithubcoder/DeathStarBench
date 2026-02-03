@@ -10,6 +10,7 @@ global:
   services:
     environments:
       GC: "10000"
+#      GOMAXPROCS: "8"
 
 geo:
   container:
@@ -70,6 +71,8 @@ reservation:
       limits:
         memory: "65536Mi"
         cpu: "32"
+#    environments:
+#      GOMAXPROCS: "32"
   configMaps:
     - name: service-config.json
       mountPath: /workspace/config.json
