@@ -1,0 +1,19 @@
+############### 下面是新补充的配置 ###############
+global:
+  resources: |
+    requests:
+      memory: "4096Mi"
+      cpu: "8"
+    limits:
+      memory: "4096Mi"
+      cpu: "8"
+
+compose-post-service:
+  container:
+    resources: |
+      requests:
+        memory: "32Gi"
+        cpu: "16"
+      limits:
+        memory: "32Gi"
+        cpu: "16"
