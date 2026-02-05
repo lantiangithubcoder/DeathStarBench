@@ -1,9 +1,0 @@
-############### 下面是新补充的配置 ###############
-global:
-  resources: |
-    requests:
-      memory: "4096Mi"
-      cpu: "8"
-    limits:
-      memory: "4096Mi"
-      cpu: "8"
