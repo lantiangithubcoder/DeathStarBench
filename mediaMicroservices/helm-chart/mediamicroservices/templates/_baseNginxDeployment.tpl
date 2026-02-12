@@ -46,8 +46,10 @@ spec:
         resources:
           {{ tpl .resources . | nindent 6 | trim }}
         {{- else if hasKey $.Values.global "resources" }}
+{{/*        resources:*/}}
+{{/*          {{ tpl $.Values.global.resources $ | nindent 6 | trim }}*/}}
         resources:
-          {{ tpl $.Values.global.resources $ | nindent 6 | trim }}
+          {{- toYaml $.Values.global.resources | nindent 10 }}
         {{- end }}
         {{- if $.Values.configMaps }}
         volumeMounts:

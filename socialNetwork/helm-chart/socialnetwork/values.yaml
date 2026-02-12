@@ -18,7 +18,7 @@ global:
       memory: 4096Mi
     requests:
       cpu: 8
-      memory: 128Mi
+      memory: 4096Mi
   replicas: 1
   imagePullPolicy: "IfNotPresent"
   restartPolicy: Always

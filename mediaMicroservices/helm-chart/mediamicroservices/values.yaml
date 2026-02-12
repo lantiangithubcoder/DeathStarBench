@@ -15,3 +15,11 @@ global:
     samplerParam: 0.01
     disabled: false
     logSpans: false
+  ########## 新补充 ##########
+  resources:
+    requests:
+      memory: "4096Mi"
+      cpu: "4"
+    limits:
+      memory: "4096Mi"
+      cpu: "8"
